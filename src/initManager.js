@@ -3,13 +3,13 @@ const Manager = require('../lib/Manager');
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 const Team = require('../lib/Team');
+const addTeamMember = require('./addTeamMember');
 
 const greeting = 'Welcome, Please enter your information to begin creating your team.';
 
 module.exports = () => {
     console.log(greeting);
-    Inquirer
-    .prompt([
+    return Inquirer.prompt([
         {
             type: 'input',
             name: 'managerName',
@@ -33,18 +33,15 @@ module.exports = () => {
                     return false;
                 }
             }
-        },
-        {
-            type: 'checkbox',
-            message: 'What would you like to do?',
-            name: 'managerAction',
-            choices: ['Add Engineer', 'Add Intern', 'Complete Team']
         }
     ])
-    .then(({ managerName, managerOffice, managerAction}) => {
-        console.log(managerName);
-        console.log(managerOffice);
-        console.log(managerAction);
+    .then(({managerName, managerOffice}) => {
+        const teamManager = new Manager(managerName, managerOffice);
+        const team = new Team();
+        return addTeamMember(teamManager, team);
+    })
+    .then((team) => {
+        
     })
     .catch((error) => {
         if (error) {
