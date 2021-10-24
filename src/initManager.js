@@ -2,6 +2,7 @@ const Inquirer = require('inquirer');
 const Manager = require('../lib/Manager');
 const Team = require('../lib/Team');
 const addTeamMember = require('./addTeamMember');
+const promptTeam = require('./promptTeam');
 
 const greeting = 'Welcome, Please enter your information to begin creating your team.';
 
@@ -39,7 +40,7 @@ module.exports = () => {
         return addTeamMember(teamManager, team);
     })
     .then((team) => {
-        
+        return promptTeam(team);
     })
     .catch((error) => {
         if (error) {
