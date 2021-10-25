@@ -51,8 +51,8 @@ const promptNewEmployee = (team = Team) => {
                     }
                 });
         } else {
-            console.log(team);
-            // displayTeamToHTML(team);
+            // console.log(team);
+            displayTeamToHTML(team);
         } 
     })
     .catch((error) => {
