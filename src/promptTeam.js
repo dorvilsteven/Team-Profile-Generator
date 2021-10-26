@@ -5,6 +5,7 @@ const Team = require('../lib/Team');
 const addTeamMember = require('./addTeamMember');
 const engineerQuery = require('./queries/engineerQuery');
 const internQuery = require('./queries/internQuery');
+const displayTeamToHTML = require('./displayTeamToHTML');
 
 const promptNewEmployee = (team = Team) => {
     return Inquirer.prompt([
@@ -51,8 +52,7 @@ const promptNewEmployee = (team = Team) => {
                     }
                 });
         } else {
-            // console.log(team);
-            displayTeamToHTML(team);
+            return displayTeamToHTML(team);
         } 
     })
     .catch((error) => {
@@ -63,5 +63,5 @@ const promptNewEmployee = (team = Team) => {
 };
 
 module.exports = (team = Team) => {
-    promptNewEmployee(team);
+    return promptNewEmployee(team);
 };
