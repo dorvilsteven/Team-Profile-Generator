@@ -21,6 +21,10 @@ Visit our link on git hub and clone the repository, after you have opened it in 
 
 After invoking `node index.js` enter the managers information, then you will be ask to enter an engineer, intern or, complete the team, each time you select to add an employee you eill be ask the appropiate prompts, and if you select to complete the team, your html file and css will be generated in the dist folder for you to use.
 
+[Video Walkthrough](https://watch.screencastify.com/v/35U552Oes5K8U51CsDU6)
+
+[Test Walkthrough](https://watch.screencastify.com/v/V2gZ3iwUWP49teJij6wW)
+
 ## License
 
 ## Questions
